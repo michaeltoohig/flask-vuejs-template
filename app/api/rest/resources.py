@@ -5,13 +5,12 @@ http://flask-restplus.readthedocs.io
 
 from datetime import datetime
 from flask import request
-from flask_restplus import Api
 
 from app.api.rest.base import BaseResource, SecureResource
-from app.api import api_rest
+from app.api import api
 
 
-@api_rest.route('/resource/<string:resource_id>')
+@api.route('/resource/<string:resource_id>')
 class ResourceOne(BaseResource):
     """ Sample Resource Class """
 
@@ -24,7 +23,7 @@ class ResourceOne(BaseResource):
         return {'timestamp': json_payload}, 201
 
 
-@api_rest.route('/secure-resource/<string:resource_id>')
+@api.route('/secure-resource/<string:resource_id>')
 class SecureResourceOne(SecureResource):
 
     def get(self, resource_id):

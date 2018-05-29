@@ -1,9 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/api">API Sample</router-link>
-    </div>
+
+    <b-navbar toggleable="md" type="dark" variant="secondary">
+      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+      <b-navbar-brand to="/">Home</b-navbar-brand>
+      <b-collapse is-nav id="nav_collapse">
+        <b-navbar-nav>
+          <b-nav-item to="/api">API Sample</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+
     <div id="logos">
       <p>
         <img src="./assets/vue-logo.png">
@@ -11,10 +18,11 @@
         <img src="./assets/flask-logo.png">
       </p>
     </div>
+
     <router-view/>
 
     <!-- FORK Me -->
-    <a href="https://github.com/gtalarico/flask-vuejs-template"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/michaeltoohig/flask-vuejs-template"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
   </div>
 </template>

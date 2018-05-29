@@ -1,10 +1,11 @@
 """ Global Flask Application Settings """
 
 import os
-from app import app
 
 
 class Config(object):
+    """Base configuration."""
+
     DEBUG = False
     TESTING = False
     BASE_DIR = os.path.dirname(__file__)
@@ -14,19 +15,26 @@ class Config(object):
         raise Exception(
             'Client App directory not found: {}'.format(CLIENT_DIR))
 
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-class Development(Config):
+class DevConfig(Config):
+    """Development configuration."""
+
     DEBUG = True
     PRODUCTION = False
     SECRET_KEY = 'SuperSecretKey'
+    # SQLAlchemy
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{0}'.format(os.path.join(Config.BASE_DIR, 'app.db'))
 
+class ProdConfig(Config):
+    """Production configuration."""
 
-class Production(Config):
     DEBUG = False
     PRODUCTION = True
     SECRET_KEY = os.environ.get('SECRET_KEY', 'UnsafeSecret')
 
+class TestConfig(Config):
+    """Testing configuration."""
 
-# Set `FLASK_CONFIG` env to 'Production' or 'Development' to set Config
-flask_config = os.environ.get('FLASK_CONFIG', 'Development')
-app.config.from_object('app.config.{}'.format(flask_config))
+    TESTING = True
+    PRODUCTION = False

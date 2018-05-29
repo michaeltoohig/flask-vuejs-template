@@ -4,13 +4,13 @@ import os
 from flask import Flask, Blueprint, session, current_app
 from flask_restplus import Api
 
-api_bp = Blueprint('api_bp', __name__,
+blueprint = Blueprint('api', __name__,
                    template_folder='templates',
                    url_prefix='/api')
 
-api_rest = Api(api_bp)
+api = Api(api_bp)
 
-@api_bp.after_request
+@blueprint.after_request
 def add_header(response):
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
 
