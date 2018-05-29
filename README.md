@@ -87,10 +87,12 @@ I think it is a small price to pay for the amount of time saved by HMR alone.
 
 ##### Api Server
 
-
 From the root directory run:
 
 ```
+$ flask db init
+$ flask db upgrade
+$ flask db migrate
 $ flask run
 ```
 
