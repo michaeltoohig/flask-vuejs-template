@@ -10,10 +10,13 @@ _Flask + Vue.js Web Application Template_
 [Live Demo](https://flask-vuejs-template.herokuapp.com/#/api)
 
 ## Features
-* Minimal Flask App with modular Config
+* Flask App with Application Factory Design
+* [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) ORM
+* [Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/) for database migrations
 * [Flask-RestPlus](http://flask-restplus.readthedocs.io) API with class-based secure resource routing
 * Starter [PyTest](http://pytest.org) test suite
 * [vue-cli 3](https://github.com/vuejs/vue-cli/blob/dev/docs/README.md) with Babel and ESlint.
+* [Bootstrap-Vue](https://bootstrap-vue.js.org) for bootstrap integration with VueJS
 * [Vuex](https://vuex.vuejs.org/) for state management
 * [Vue Router](https://router.vuejs.org/)
 * [Axios](https://vuex.vuejs.org/) for backend communication
@@ -55,7 +58,7 @@ The Vue instance is preconfigured with Filters, Vue-Router, Vuex; each of these 
 * Clone this repository:
 
 	```
-	$ git clone https://github.com/gtalarico/flask-vuejs-template.git
+	$ git clone https://github.com/michaeltoohig/flask-vuejs-template.git
 	```
 
 * Create a [virtual enviroment](https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies) (highly recommended)
@@ -84,10 +87,11 @@ I think it is a small price to pay for the amount of time saved by HMR alone.
 
 ##### Api Server
 
+
 From the root directory run:
 
 ```
-$ python -m app serve_api
+$ flask run
 ```
 
 This will start the flask development server on `localhost:5000` and will respond to all requests on `/api.`.
@@ -98,7 +102,7 @@ This command is the same as running `python run.py`
 Start another terminal window, and from the same directory run:
 
 ```
-$ python -m app serve_client
+$ flask serve_client
 ```
 
 This will launch your browser and server the Vue application on `localhost:8080`. T
@@ -114,7 +118,7 @@ This template is configured to work with Heroku out of the box - just make sure 
 
 * Build your Vue Application:
 ```
-$ python -m app build
+$ flask build
 ```
 This commands is a shorcut for cd-ing into `/app/client/vue_app` and running `$ npm run build`.
 
@@ -136,4 +140,4 @@ This commands is a shorcut for cd-ing into `/app/client/vue_app` and running `$ 
 
 You can spin up your on version of this template on Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/gtalarico/flask-vuejs-template)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/michaeltoohig/flask-vuejs-template)

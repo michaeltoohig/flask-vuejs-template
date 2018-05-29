@@ -8,6 +8,8 @@ click = "==6.7"
 gunicorn = "==19.7.1"
 Flask = "==0.12.2"
 flask-restplus = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
 
 [dev-packages]
 pytest = "*"
@@ -16,4 +18,4 @@ pytest-sugar = "*"
 pytest-cov = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.5"

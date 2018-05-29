@@ -7,8 +7,6 @@ from datetime import datetime
 from flask import current_app
 from flask.cli import with_appcontext
 
-from app import tasks
-from app.api import models
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.join(HERE, os.pardir)
@@ -31,7 +29,7 @@ def serve_client():
 
 
 @click.command(help='Build Vue Application.', name='build')
-def build_client():
+def build():
     """ Builds Vue Application """
     cmd = 'npm run build'
     _bash(cmd, cwd=current_app.config['CLIENT_DIR'])

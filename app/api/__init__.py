@@ -8,7 +8,7 @@ blueprint = Blueprint('api', __name__,
                    template_folder='templates',
                    url_prefix='/api')
 
-api = Api(api_bp)
+api = Api(blueprint)
 
 @blueprint.after_request
 def add_header(response):
